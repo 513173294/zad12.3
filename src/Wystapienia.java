@@ -10,7 +10,7 @@ public class Wystapienia {
         Scanner scanner = new Scanner(file);
 
         List<Integer> lista = new ArrayList<>();
-        List<Integer> lista2 = new ArrayList<>();
+        Set<Integer> lista2 = new TreeSet<>();
 
         while (scanner.hasNext()) {
             int liczba = scanner.nextInt();
@@ -22,14 +22,16 @@ public class Wystapienia {
 
         }
         System.out.println(lista.toString());
-//        System.out.println(lista2.toString());
+        System.out.println(lista2.toString());
 
-        int i = 0;
-        while (i < lista2.size()) {
-            int frequency = Collections.frequency(lista, lista2.get(i));
-            System.out.println(lista2.get(i) + " liczba wystapien :" + frequency);
-            i++;
+        Iterator<Integer> iterator = lista2.iterator();
+        while (iterator.hasNext()) {
+            Integer next = iterator.next();
+
+            int frequency = Collections.frequency(lista, next);
+            System.out.println(next + " liczba wystapien :" + frequency);
         }
+
     }
 
 
